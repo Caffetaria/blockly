@@ -675,12 +675,12 @@ sensors.infrared.wedo = {
 };
 
 sensors.infrared.edison = {
-	title : 'INFRARED',
+    title : 'INFRARED',
     ports : [ [ 'LEFT', 'LEFT' ], [ 'RIGHT', 'RIGHT' ], [ 'SLOT_FRONT', 'FRONT' ] ],
-	modes : [ {
-		name : 'OBSTACLE',
-		type : 'Boolean'
-	} ]
+    modes : [ {
+        name : 'OBSTACLE',
+        type : 'Boolean'
+    } ]
 };
 
 sensors.irseeker = {};
@@ -699,11 +699,11 @@ sensors.irseeker.ev3 = {
 };
 
 sensors.irseeker.edison = {
-	title : 'IRSEEKER',
-	modes : [ {
-		name : 'RCCODE',
-		type : 'Number'
-	} ]
+    title : 'IRSEEKER',
+    modes : [ {
+        name : 'RCCODE',
+        type : 'Number'
+    } ]
 };
 
 sensors.key = {};
@@ -718,6 +718,16 @@ sensors.key.botnroll = {
 };
 
 sensors.key.arduino = {
+    title : 'KEY',
+    modes : [ {
+        name : 'PRESSED',
+        type : 'Boolean',
+        question : true
+    } ],
+    ports : 'CONFIGURATION'
+};
+
+sensors.key.raspberrypi = {
     title : 'KEY',
     modes : [ {
         name : 'PRESSED',
@@ -779,13 +789,13 @@ sensors.key.wedo = {
 };
 
 sensors.key.edison = {
-	title : 'KEY',
-	modes : [ {
-		name : 'PRESSED',
-		type : 'Boolean',
-		question : true
-	} ],
-	ports : [['SENSOR_KEY_PLAY', 'PLAY'], ['SENSOR_KEY_REC', 'REC'] ]
+    title : 'KEY',
+    modes : [ {
+        name : 'PRESSED',
+        type : 'Boolean',
+        question : true
+    } ],
+    ports : [ [ 'SENSOR_KEY_PLAY', 'PLAY' ], [ 'SENSOR_KEY_REC', 'REC' ] ]
 };
 
 sensors.light = {};
@@ -849,16 +859,16 @@ sensors.light.mbot = {
 };
 
 sensors.light.edison = {
-	title : 'LIGHT',
-	modes : [ {
-		name : 'LIGHT',
-		type : 'Number',
+    title : 'LIGHT',
+    modes : [ {
+        name : 'LIGHT',
+        type : 'Number',
         unit : 'PERCENT',
-        ports : [ ['LEFT', 'LLIGHT'], ['RIGHT', 'RLIGHT'], ['BELOW', 'LINETRACKER'] ]
-	}, {
+        ports : [ [ 'LEFT', 'LLIGHT' ], [ 'RIGHT', 'RLIGHT' ], [ 'BELOW', 'LINETRACKER' ] ]
+    }, {
         name : 'LINE',
         type : 'Boolean',
-        ports : [ ['BELOW', 'LINETRACKER'] ]
+        ports : [ [ 'BELOW', 'LINETRACKER' ] ]
     } ]
 };
 
@@ -984,29 +994,33 @@ sensors.pin.calliope = {
 };
 sensors.pin.microbit = {
     title : 'PIN',
-    modes : [ {
-        name : 'ANALOG',
-        type : 'Number',
-        ports : [ [ '0', '0' ], [ '1', '1' ], [ '2', '2' ], [ '3', '3' ], [ '4', '4' ], [ '10', '10' ] ]
-    }, {
-        name : 'DIGITAL',
-        type : 'Number',
-        ports : [ [ '0', '0' ], [ '1', '1' ], [ '2', '2' ], [ '3', '3' ], [ '4', '4' ], [ '5', '5' ], [ '6', '6' ], [ '7', '7' ], [ '8', '8' ],
-                [ '9', '9' ], [ '10', '10' ], [ '11', '11' ], [ '12', '12' ], [ '13', '13' ], [ '14', '14' ], [ '15', '15' ], [ '16', '16' ],
-                [ '19', '19' ], [ '20', '20' ] ]
-    }, {
-        name : 'PULSEHIGH',
-        type : 'Number',
-        ports : [ [ '0', '0' ], [ '1', '1' ], [ '2', '2' ], [ '3', '3' ], [ '4', '4' ], [ '5', '5' ], [ '6', '6' ], [ '7', '7' ], [ '8', '8' ],
-                [ '9', '9' ], [ '10', '10' ], [ '11', '11' ], [ '12', '12' ], [ '13', '13' ], [ '14', '14' ], [ '15', '15' ], [ '16', '16' ],
-                [ '19', '19' ], [ '20', '20' ] ]
-    }, {
-        name : 'PULSELOW',
-        type : 'Number',
-        ports : [ [ '0', '0' ], [ '1', '1' ], [ '2', '2' ], [ '3', '3' ], [ '4', '4' ], [ '5', '5' ], [ '6', '6' ], [ '7', '7' ], [ '8', '8' ],
-                [ '9', '9' ], [ '10', '10' ], [ '11', '11' ], [ '12', '12' ], [ '13', '13' ], [ '14', '14' ], [ '15', '15' ], [ '16', '16' ],
-                [ '19', '19' ], [ '20', '20' ] ]
-    } ]
+    modes : [
+            {
+                name : 'ANALOG',
+                type : 'Number',
+                ports : [ [ '0', '0' ], [ '1', '1' ], [ '2', '2' ], [ '3', '3' ], [ '4', '4' ], [ '10', '10' ] ]
+            },
+            {
+                name : 'DIGITAL',
+                type : 'Number',
+                ports : [ [ '0', '0' ], [ '1', '1' ], [ '2', '2' ], [ '3', '3' ], [ '4', '4' ], [ '5', '5' ], [ '6', '6' ], [ '7', '7' ], [ '8', '8' ],
+                        [ '9', '9' ], [ '10', '10' ], [ '11', '11' ], [ '12', '12' ], [ '13', '13' ], [ '14', '14' ], [ '15', '15' ], [ '16', '16' ],
+                        [ '19', '19' ], [ '20', '20' ] ]
+            },
+            {
+                name : 'PULSEHIGH',
+                type : 'Number',
+                ports : [ [ '0', '0' ], [ '1', '1' ], [ '2', '2' ], [ '3', '3' ], [ '4', '4' ], [ '5', '5' ], [ '6', '6' ], [ '7', '7' ], [ '8', '8' ],
+                        [ '9', '9' ], [ '10', '10' ], [ '11', '11' ], [ '12', '12' ], [ '13', '13' ], [ '14', '14' ], [ '15', '15' ], [ '16', '16' ],
+                        [ '19', '19' ], [ '20', '20' ] ]
+            },
+            {
+                name : 'PULSELOW',
+                type : 'Number',
+                ports : [ [ '0', '0' ], [ '1', '1' ], [ '2', '2' ], [ '3', '3' ], [ '4', '4' ], [ '5', '5' ], [ '6', '6' ], [ '7', '7' ], [ '8', '8' ],
+                        [ '9', '9' ], [ '10', '10' ], [ '11', '11' ], [ '12', '12' ], [ '13', '13' ], [ '14', '14' ], [ '15', '15' ], [ '16', '16' ],
+                        [ '19', '19' ], [ '20', '20' ] ]
+            } ]
 };
 
 sensors.pintouch = {};
@@ -1114,11 +1128,11 @@ sensors.sound.sensebox = {
 sensors.sound.nxt = sensors.sound.ev3;
 sensors.sound.mbot = sensors.sound.ev3;
 sensors.sound.edison = {
-	title : 'SOUND',
-	modes : [ {
-		name : 'SOUND',
-		type : 'Boolean'
-	} ]
+    title : 'SOUND',
+    modes : [ {
+        name : 'SOUND',
+        type : 'Boolean'
+    } ]
 };
 
 sensors.temperature = {};
@@ -1194,6 +1208,7 @@ sensors.timer.arduino = sensors.timer.botnroll;
 sensors.timer.mbot = sensors.timer.arduino;
 sensors.timer.wedo = sensors.timer.botnroll;
 sensors.timer.sensebox = sensors.timer.botnroll;
+sensors.timer.raspberrypi = sensors.timer.botnroll;
 
 sensors.timer.ev3 = {
     title : 'TIMER',
@@ -1397,7 +1412,8 @@ sensorsAll.vorwerk = [ sensors.touch.vorwerk, sensors.accelerometer.vorwerk, sen
 sensorsAll.wedo = [ sensors.key.wedo, sensors.gyro.wedo, sensors.infrared.wedo, sensors.timer.wedo ];
 sensorsAll.sensebox = [ sensors.key.sensebox, sensors.light.sensebox, sensors.potentiometer.sensebox, sensors.sound.sensebox, sensors.ultrasonic.sensebox,
         sensors.humidity.sensebox, sensors.temperature.sensebox, sensors.lightveml.sensebox, sensors.timer.sensebox ];
-sensorsAll.edison = [ sensors.key.edison, sensors.infrared.edison, sensors.irseeker.edison, sensors.light.edison, sensors.sound.edison ];        
+sensorsAll.edison = [ sensors.key.edison, sensors.infrared.edison, sensors.irseeker.edison, sensors.light.edison, sensors.sound.edison ];
+sensorsAll.raspberrypi = [ sensors.key.raspberrypi, sensors.timer.raspberrypi ];
 
 function initSensors() {
     for ( var sensor in sensors) {
